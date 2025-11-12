@@ -17,7 +17,7 @@ export function Result() {
                 <p className="text-9xl font-bold">11</p>
             </div>
 
-            <ul className="flex flex-col justify-center items-center gap-8 bg-gray-500/40 w-[672px] h-82 border-5 border-gray-900 rounded-3xl text-4xl font-black">
+            <ul className="flex flex-col justify-center items-center gap-8 bg-gray-500/40 w-[672px] h-82 border-5 border-gray-800 rounded-3xl text-4xl font-black">
                 {ranking.map((user, index) => (
                 <li key={index} className="flex w-[540px] pb-4 border-b border-white border-dashed">
                     <p className={`w-16 ${index === 0 ? "text-gold" : ""}`}>{index + 1}位</p>
