@@ -1,13 +1,13 @@
 type UserRank = {
-    name: string;
+    names: string;
     points: number;
 };
 
 export function Result() {
     const ranking: UserRank[] = [
-        { name: "UserA", points: 1000000 },
-        { name: "UserB", points: 10000 },
-        { name: "UserC", points: 1000 },
+        { names: "UserA", points: 1000000 },
+        { names: "UserB", points: 10000 },
+        { names: "UserC", points: 1000 },
     ];
 
     return (
@@ -21,7 +21,7 @@ export function Result() {
                 {ranking.map((user, index) => (
                 <li key={index} className="flex w-[540px] pb-4 border-b border-white border-dashed">
                     <p className={`w-16 ${index === 0 ? "text-gold" : ""}`}>{index + 1}位</p>
-                    <p className="flex-1 text-center">{user.name}</p>
+                    <p className="flex-1 text-center">{user.names}</p>
                     <p className="flex justify-end flex-1">{user.points.toLocaleString()}pt</p>
                 </li>
                 ))}
