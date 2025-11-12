@@ -7,7 +7,7 @@ export  function Result() {
                 <h1 className="text-3xl font-bold text-gold">当たり</h1>
                 <p className="text-9xl font-bold">11</p>
             </div>
-            <ul className="flex flex-col justify-center items-center gap-6 bg-gray-500/40 w-[672px] h-82 border-5 border-gray-900 rounded-3xl text-4xl font-black">
+            <ul className="flex flex-col justify-center items-center gap-8 bg-gray-500/40 w-[672px] h-82 border-5 border-gray-900 rounded-3xl text-4xl font-black">
                 <li className="flex w-[540px] pb-4 border-b border-white border-dashed">
                     <p className="w-16 text-gold">1位</p>
                     <p className="flex-1 text-center">UserName</p>
