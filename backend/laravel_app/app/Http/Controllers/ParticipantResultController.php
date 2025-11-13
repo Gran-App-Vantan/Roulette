@@ -14,8 +14,8 @@ class ParticipantResultController extends Controller
 
         foreach ($active_player as $index){
             $user = $index['user_id'];
-            $stake = $index['stake'];
-
+            $stake = $index['stake']; //賭けたお金
+            $betting_place = $index['betting_place']; //賭けた場所
 
         }
     }

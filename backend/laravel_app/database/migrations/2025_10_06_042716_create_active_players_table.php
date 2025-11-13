@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('icon')->nullable();//textにしてもう少し文字列が入るように。（iconには画像のURLを採用するので）
             $table->integer('stake')->default(0);
             $table->boolean('is_guest')->default(false);
+            $table->integer('betting_place');
             $table->timestamps();
         });
     }
