@@ -17,12 +17,13 @@ export function Standby({ duration }: StandbyProps) {
     return () => clearInterval(interval);
     }, []);
 
+    const minutes = Math.floor(secondsLeft / 60);
     const seconds = secondsLeft % 60;
 
     return (
-        <div className="absolute  flex flex-col justify-start items-center w-[570px] h-79 bg-black/70 border-5 border-gray-600 rounded-3xl gap-6 p-10 top-20 left-41 translate-x-1/2 z-10">
-            <p className="text-5xl font-bold">開始まで残り</p>
-            <p className="text-8xl font-bold">{seconds.toString().padStart(2, "0")}秒</p>
-        </div>
+            <div className="absolute  flex flex-col justify-start items-center w-[570px] h-79 bg-black/70 border-5 border-gray-600 rounded-3xl gap-6 p-10 -translate-x-1/2 left-1/2 z-10">
+                <p className="text-5xl font-bold">開始まで残り</p>
+                <p className="text-8xl font-bold">{minutes}:{seconds.toString().padStart(2, "0")}秒</p>
+            </div>
     );
 }

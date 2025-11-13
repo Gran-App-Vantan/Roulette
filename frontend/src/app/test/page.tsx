@@ -7,7 +7,7 @@ import { Standby } from "@/components/elements/Standby";
 export default function Test() {
     return (
         <div>
-            <Standby />
+            <Standby duration={20}/>
         </div>
     )
 }
