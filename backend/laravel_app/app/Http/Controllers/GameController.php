@@ -19,7 +19,6 @@ class GameController extends Controller
         ]);
     }
 
-    function 
 
     // function index(){
     //     $active_player = Active_player::where('is_guest', false)->get();
