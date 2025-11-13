@@ -6,7 +6,7 @@ export default function TimedSwitch() {
     const { showA, bActive } = useTimedSwitch(180000);
     return (
         <div>
-            {showA && <Standby duration={180}/>}
+            {showA && <Standby  duration={180}/>}
             <LeftMenu isActive={bActive} />
         </div>
     );

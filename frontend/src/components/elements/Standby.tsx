@@ -21,7 +21,7 @@ export function Standby({ duration }: StandbyProps) {
     const seconds = secondsLeft % 60;
 
     return (
-            <div className="absolute  flex flex-col justify-start items-center w-[570px] h-79 bg-black/70 border-5 border-gray-600 rounded-3xl gap-6 p-10 -translate-x-1/2 left-1/2 z-10">
+            <div className="absolute  flex flex-col justify-start items-center w-[570px] h-79 bg-black/70 border-5 border-gray-600 rounded-3xl gap-6 pt-15 right-38 z-10">
                 <p className="text-5xl font-bold">開始まで残り</p>
                 <p className="text-8xl font-bold">{minutes}:{seconds.toString().padStart(2, "0")}秒</p>
             </div>
