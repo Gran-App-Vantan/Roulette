@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 
-export function LeftMenu() {
-    const [isActive, setIsActive] = useState(true);
+export function LeftMenu({ isActive }: { isActive: boolean }) {
     return(
         <div>
             {isActive?(
