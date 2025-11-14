@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id');
             $table->bigInteger('sns_id');
             $table->json('stake')->nullable();
-            $table->integer('bet_place')->nullable();
+            $table->json('bet_place')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
