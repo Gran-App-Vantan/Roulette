@@ -117,5 +117,35 @@ export const useBettingGrid = () => {
     );
   };
 
-  return { grid, selectOutsideBet, getRandomOutsideBet };
+  // マス番号をクリックでトグル（手動選択）
+  const toggleNumber = (betNumber: number) => {
+    setGrid((prev) =>
+      prev.map((item) =>
+        item.betNumber === betNumber
+          ? { ...item, selected: !item.selected, dim: false }
+          : { ...item, dim: false } // 手動操作が入ったら dim をクリア
+      )
+    );
+  };
+
+  // 現在選択されている番号一覧を返す
+  const getSelectedNumbers = (): number[] => {
+    return grid.filter((i) => i.selected).map((i) => i.betNumber);
+  };
+
+  // 選択を確定する。clearAfterConfirm=true なら確定後に選択をクリアする
+  const confirmSelection = (clearAfterConfirm = true): number[] => {
+    const selected = getSelectedNumbers();
+    if (clearAfterConfirm) {
+      setGrid((prev) => prev.map((item) => ({ ...item, selected: false, dim: false })));
+    }
+    return selected;
+  };
+
+  // 選択をクリアするユーティリティ
+  const clearSelection = () => {
+    setGrid((prev) => prev.map((item) => ({ ...item, selected: false, dim: false })));
+  };
+
+  return { grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, getSelectedNumbers, confirmSelection, clearSelection };
 };

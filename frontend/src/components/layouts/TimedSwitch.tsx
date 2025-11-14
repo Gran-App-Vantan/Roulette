@@ -64,6 +64,33 @@ export default function TimedSwitch() {
     }
   }, [phase]);
 
+  // Resultフェーズでランダム結果生成 & Standby に戻す
+useEffect(() => {
+  if (phase === "result") {
+    // まだ result が null の場合にランダム生成
+    if (result === null) {
+      const randomValue = Math.floor(Math.random() * 36) + 1; // 1～36
+      setResult(randomValue);
+
+      // ここでバックエンドに送信可能
+      fetch("/api/send-result", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ result: randomValue }),
+      });
+    }
+
+    const timer = setTimeout(() => {
+      setPhase("standby");
+      setResult(null);
+      angleRef.current = 0; // ホイール角度リセット
+    }, RESULT_DURATION);
+
+    return () => clearTimeout(timer);
+  }
+}, [phase, result]);
+
+
   // Result フェーズ
   useEffect(() => {
     if (phase === "result") {

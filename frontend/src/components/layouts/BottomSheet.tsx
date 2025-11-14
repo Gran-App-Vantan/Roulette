@@ -55,10 +55,10 @@ const BottomSheet = ({ children }:BottomSheetProps) => {
   return (
     <section className="fixed w-full h-screen pointer-events-none z-100">
       <div className={clsx(
-        "pointer-events-auto absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/3 bg-bg-modal rounded-t-[44px] transition-all duration-300 max-w-140",
+        "pointer-events-auto absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-auto pb-5 max-h-[80vh] overflow-y-auto bg-bg-modal rounded-t-[44px] transition-all duration-300 max-w-140",
         bottomSheet.state.isOpen
           ? "translate-y-0"
-          : "translate-y-[120%]"
+          : "translate-y-full"
       )}>
         <div 
           onMouseDown={(e) => handleStartMouse(e)}

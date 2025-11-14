@@ -7,6 +7,10 @@ type ResultProps = {
     resultValue: number | null;
 };
 
+type ResultItemProps = {
+    resultValue: number | null;
+};
+
 export function Result({ resultValue }: ResultProps) {
     const ranking: UserRank[] = [
         { names: "UserA", points: 1000000 },
@@ -18,7 +22,7 @@ export function Result({ resultValue }: ResultProps) {
         <div className="flex flex-col justify-center items-center gap-4 bg-black/80 w-full h-screen  z-50">
             <div className="flex flex-col justify-center items-center gap-1 w-[309px] h-[309px] bg-[url('/img/result.svg')] bg-no-repeat">
                 <h1 className="text-3xl font-bold text-gold">当たり</h1>
-                <p className="text-9xl font-bold">11</p>
+                <p className="text-9xl font-bold">{resultValue}</p>
             </div>
 
             <ul className="flex flex-col justify-center items-center gap-8 bg-gray-500/40 w-[672px] h-82 border-5 border-black/40 rounded-3xl text-4xl font-black">
