@@ -3,7 +3,11 @@ type UserRank = {
     points: number;
 };
 
-export function Result() {
+type ResultProps = {
+    resultValue: number | null;
+};
+
+export function Result({ resultValue }: ResultProps) {
     const ranking: UserRank[] = [
         { names: "UserA", points: 1000000 },
         { names: "UserB", points: 10000 },
@@ -11,7 +15,7 @@ export function Result() {
     ];
 
     return (
-        <div className="flex flex-col justify-center items-center gap-4 bg-black/60 w-full h-screen">
+        <div className="flex flex-col justify-center items-center gap-4 bg-black/60 w-full h-screen  z-50">
             <div className="flex flex-col justify-center items-center gap-1 w-[309px] h-[309px] bg-[url('/img/result.svg')] bg-no-repeat">
                 <h1 className="text-3xl font-bold text-gold">当たり</h1>
                 <p className="text-9xl font-bold">11</p>

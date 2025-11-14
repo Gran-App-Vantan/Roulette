@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export function useTimedSwitch(duration: number = 180000) {
     const [showA, setShowA] = useState(true);
@@ -6,8 +6,8 @@ export function useTimedSwitch(duration: number = 180000) {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-        setShowA(false);
-        setBActive(true);
+            setShowA(false);
+            setBActive(true);
         }, duration);
 
         return () => clearTimeout(timer);
