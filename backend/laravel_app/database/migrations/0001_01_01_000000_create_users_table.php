@@ -13,11 +13,20 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
-            $table->bigInteger('sns_id');
-            $table->json('stake')->nullable();
-            $table->json('bet_place')->nullable();
+            $table->unsignedBigInteger('sns_id');
+            $table->bigInteger('point');
             $table->rememberToken();
             $table->timestamps();
+        });
+        Schema::create('bets', function (Blueprint $table) {
+            $table->id('id');
+            $table->unsignedInteger('stake');
+            $table->unsignedInteger('bet_place');
+            $table->timestamps();
+
+            $table->foreignId('user_id')
+                ->constrained()
+                ->cascadeOnDelete();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -42,6 +51,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('bets');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
