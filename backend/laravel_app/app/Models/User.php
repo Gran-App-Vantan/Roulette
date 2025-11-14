@@ -19,9 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'sns_id',
-        'stake',
-        'bet_place',
-        'id'
+        'point'
     ];
 
     /**
@@ -45,5 +43,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function bets()
+    {
+        return $this->hasMany(Bet::class);
     }
 }
