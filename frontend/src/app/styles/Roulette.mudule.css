@@ -1,0 +1,122 @@
+/* styles/Roulette.module.css */
+
+.rouletteContainer {
+  position: relative; 
+  width: 500px; 
+  height: 500px; 
+  margin: 50px auto;
+}
+
+/* すべてのレイヤーに共通のスタイル */
+.rouletteContainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center; 
+}
+
+/* Layer 1: 最奥 (回転しない) */
+.layer1 {
+  z-index: 10;
+}
+
+/* Layer 2, 3, 4 の transition を 6.0s に修正 */
+.layer2 {
+  z-index: 30;
+  pointer-events: none;
+  transition: transform 6.0s cubic-bezier(0.1, 0.9, 0.4, 1.0); /* 6.0sに統一 */
+}
+
+.layer3Wheel {
+  z-index: 20;
+  transition: transform 6.0s cubic-bezier(0.1, 0.9, 0.4, 1.0); /* 6.0sに統一 */
+}
+
+.layer4 {
+  z-index: 30; 
+  pointer-events: none;
+  transition: transform 6.0s cubic-bezier(0.1, 0.9, 0.4, 1.0); /* 6.0sに統一 */
+}
+
+
+/* 回転ボタンのスタイル */
+.spinButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 40; 
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.spinButton:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.spinButton:disabled {
+  cursor: not-allowed;
+  background-color: #888;
+}
+
+/* 白いボールのスタイル - transition を 6.0s に修正 */
+.rouletteBall {
+  position: absolute;
+  width: 13px; 
+  height: 13px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 35; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  
+  /* ボールアニメーションの時間を 6.0s に、イージングを調整 */
+  transition: transform 6.0s cubic-bezier(0.1, 0.7, 0.5, 1.0); /* 6.0sに統一 */
+}
+
+/* ボールを非表示にする */
+.hidden {
+  display: none;
+}
+
+/* 勝利ナンバー表示のスタイル (コンテナの右外側配置) */
+.winningResult {
+  position: absolute;
+  top: 50%; 
+  /* コンテナの右端から10%離れた位置を基準にする */
+  left: 110%; 
+  /* その基準点に対して中央寄せ */
+  transform: translate(-50%, -50%); 
+
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 3px solid gold;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  z-index: 100;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  pointer-events: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.winningResult strong {
+  color: #ffcc00; 
+  font-size: 1.8rem;
+}
