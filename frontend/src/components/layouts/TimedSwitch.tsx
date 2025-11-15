@@ -5,10 +5,13 @@ import { useState, useEffect, useRef } from "react";
 import { Standby } from "@/components/elements/Standby";
 import { Result } from "@/components/layouts/Result";
 import { LeftMenu } from "@/components/elements/LeftMenu";
+import { UserAll } from "@/api/game/userAll";
+import { User } from "@/api/game/types";
 
 export default function TimedSwitch() {
   const [phase, setPhase] = useState<"standby" | "spinning" | "result">("standby");
   const [result, setResult] = useState<number | null>(null);
+  const [rankings, setRankings] = useState<User[] | null>(null);
 
   // refs
   const wheelRef = useRef<HTMLDivElement>(null);
@@ -17,8 +20,17 @@ export default function TimedSwitch() {
   const speedRef = useRef<number>(0);
   const deceleratingRef = useRef<boolean>(false);
 
-  const STANDBY_DURATION = 180000;
+  const STANDBY_DURATION = 1000;
   const RESULT_DURATION = 8000;
+
+  const fetchRankings = async () => {
+    try {
+      const response = await UserAll();
+      setRankings(response.user);
+    } catch (error) {
+      console.error("ランキングの取得に失敗しました: ", error);
+    }
+  }
 
   // ホイールアニメーション
   const animateWheel = () => {
@@ -104,12 +116,15 @@ useEffect(() => {
       const timer = setTimeout(() => {
         setPhase("standby");
         setResult(null);
+        fetchRankings();
         angleRef.current = 0;
       }, RESULT_DURATION);
 
       return () => clearTimeout(timer);
     }
   }, [phase, result]);
+
+  console.log(rankings);
 
   return (
     <div className="relative flex justify-center items-center gap-44 w-full h-screen">

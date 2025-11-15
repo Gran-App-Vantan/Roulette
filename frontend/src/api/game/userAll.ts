@@ -6,7 +6,7 @@ export interface UserAllResponse {
   user: User[];
 }
 
-export async function UserALl():Promise<UserAllResponse> {
+export async function UserAll():Promise<UserAllResponse> {
   const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/user_all`;
 
   return axios

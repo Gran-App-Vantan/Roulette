@@ -552,3 +552,59 @@ Did you mean one of these?
 #46 /workdir/laravel_app/artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
 #47 {main}
 "} 
+[2025-11-15 02:42:10] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:222)
+[stacktrace]
+#0 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(138): Illuminate\\Log\\LogManager->resolve(NULL, NULL)
+#1 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(125): Illuminate\\Log\\LogManager->get(NULL)
+#2 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(703): Illuminate\\Log\\LogManager->driver()
+#3 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(403): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(366): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(562): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(TypeError))
+#7 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /workdir/laravel_app/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/workdir/larave...')
+#10 {main}
+"} 
+[2025-11-15 02:42:10] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:102)
+[stacktrace]
+#0 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(102): array_merge(Array, 1)
+#1 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(80): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/workdir/larave...', Array)
+#2 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(186): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(170): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#6 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#7 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /workdir/laravel_app/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/workdir/larave...')
+#10 {main}
+"} 
+[2025-11-15 02:42:25] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:222)
+[stacktrace]
+#0 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(138): Illuminate\\Log\\LogManager->resolve(NULL, NULL)
+#1 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(125): Illuminate\\Log\\LogManager->get(NULL)
+#2 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(703): Illuminate\\Log\\LogManager->driver()
+#3 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(403): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(366): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(562): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(TypeError))
+#7 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /workdir/laravel_app/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/workdir/larave...')
+#10 {main}
+"} 
+[2025-11-15 02:42:25] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:102)
+[stacktrace]
+#0 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(102): array_merge(Array, 1)
+#1 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(80): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/workdir/larave...', Array)
+#2 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(186): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(170): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#6 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#7 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /workdir/laravel_app/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /workdir/laravel_app/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/workdir/larave...')
+#10 {main}
+"} 
