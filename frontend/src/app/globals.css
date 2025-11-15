@@ -93,3 +93,16 @@ body {
 .overflow-scroll-smooth{
   -webkit-overflow-scrolling: touch;
 }
+
+.text-gold {
+  background: linear-gradient(
+    135deg,
+    rgba(122, 92, 46, 0.91) 0%,
+    #C59D4D 35%,
+    #FFF3B0 55%,
+    #C59D4D 80%,
+    #7A5C2E 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

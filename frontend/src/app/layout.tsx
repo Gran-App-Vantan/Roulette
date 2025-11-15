@@ -30,7 +30,6 @@ export default function RootLayout({
       <body className={`${notoSerifJP.variable} antialiased`}>
         <BettingGridProvider>
           <BottomSheetProvider>
-            <Header/>
             {children}
           </BottomSheetProvider>
         </BettingGridProvider>

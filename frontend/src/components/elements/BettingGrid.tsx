@@ -7,11 +7,12 @@ interface BettingGridProps{
   color: BettingGridColor;
   seleted: boolean;
   dim: boolean;
+  onClick?: () => void;
 }
 
-const BettingGrid = ({ betNumber, color, seleted, dim }:BettingGridProps) => {
+const BettingGrid = ({ betNumber, color, seleted, dim, onClick }:BettingGridProps) => {
   return (
-    <button className={clsx(
+    <button onClick={onClick} className={clsx(
       "betting-grid transition-all duration-300",
       color === "red"
         ? "grid-red"

@@ -6,11 +6,16 @@ interface CommonButtonProps{
   color: string;
   invert?: boolean;
   onClick: () => void;
+  disabled?: boolean;
 }
 
-const CommonButton = ({ children, color, invert = false, onClick }:CommonButtonProps) => {
+const CommonButton = ({ children, color, invert = false, onClick, disabled = false }:CommonButtonProps) => {
   return (
-    <button onClick={onClick} className={clsx("w-full h-auto p-4 rounded-2xl active:brightness-90 transition-all duration-300 pointer-events-auto", color)}>
+    <button
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
+      aria-disabled={disabled}
+      className={clsx("w-full h-auto p-4 rounded-2xl active:brightness-90 transition-all duration-300 pointer-events-auto", color)}>
       {children}
     </button>
   );
