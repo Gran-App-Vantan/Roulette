@@ -123,7 +123,18 @@ export const useBettingGrid = () => {
       prev.map((item) =>
         item.betNumber === betNumber
           ? { ...item, selected: !item.selected, dim: false }
-          : { ...item, dim: false } // 手動操作が入ったら dim をクリア
+          : { ...item, dim: false }
+      )
+    );
+  };
+
+  // クリックされたマスだけを選択（他はクリア）して dim を解除するユーティリティ
+  const selectSingleNumber = (betNumber: number) => {
+    setGrid((prev) =>
+      prev.map((item) =>
+        item.betNumber === betNumber
+          ? { ...item, selected: true, dim: false }
+          : { ...item, selected: false, dim: false }
       )
     );
   };
@@ -147,5 +158,5 @@ export const useBettingGrid = () => {
     setGrid((prev) => prev.map((item) => ({ ...item, selected: false, dim: false })));
   };
 
-  return { grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, getSelectedNumbers, confirmSelection, clearSelection };
+  return { grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, selectSingleNumber, getSelectedNumbers, confirmSelection, clearSelection };
 };

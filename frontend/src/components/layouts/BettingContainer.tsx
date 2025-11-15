@@ -4,7 +4,7 @@ import { useBettingGridContext } from "@/contexts/BettingGridContext";
 
 const BettingContainer = () => {
   const bettingGrid = useBettingGridContext();
-  
+
   return (
     <section className="grid grid-cols-3 gap-1 w-full p-1 bg-text-primary rounded-2xl max-w-100 betting-container">
       {bettingGrid.grid.map((item) => (
@@ -14,7 +14,14 @@ const BettingContainer = () => {
           color={item.color}
           seleted={item.selected}
           dim={item.dim}
-          onClick={() => bettingGrid.toggleNumber(item.betNumber)}
+          onClick={() => {
+            const sel = (bettingGrid as any).selectSingleNumber ?? (bettingGrid as any).toggleNumber;
+            if (typeof sel === "function") {
+              sel(item.betNumber);
+              return;
+            }
+            console.error("selectSingleNumber / toggleNumber が見つかりません", bettingGrid);
+          }}
         />
       ))}
     </section>

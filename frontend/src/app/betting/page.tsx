@@ -9,10 +9,15 @@ import Header from "@/components/layouts/Header";
 
 import { useBottomSheetContext } from "@/contexts/BottomSheetContext";
 import { useBettingGridContext } from "@/contexts/BettingGridContext";
+import { useRouter } from "next/navigation";
 
 const BettingPage = () => {
   const bottomSheet = useBottomSheetContext();
   const bettingGrid = useBettingGridContext();
+  const router = useRouter();
+
+  // 選択があるかどうか
+  const hasSelection = bettingGrid.getSelectedNumbers().length > 0;
 
   return (
     <main>
@@ -27,13 +32,18 @@ const BettingPage = () => {
           <CommonButton color="bg-black shadow-xl select-none" onClick={() => bettingGrid.selectOutsideBet("black")}><p className="font-bold text-lg">黒のみ</p></CommonButton>
           <CommonButton color="bg-primary shadow-xl floating-glow select-none" onClick={() => bettingGrid.selectOutsideBet(bettingGrid.getRandomOutsideBet())}><p className="font-bold text-lg">ランダム</p></CommonButton>
           <CommonButton
-            color="bg-green-500 shadow-xl select-none"
+            // 選択がないと押せないように見た目と挙動を制御
+            color={hasSelection ? "bg-green-500 shadow-xl select-none" : "bg-green-500 shadow-xl select-none opacity-50 cursor-not-allowed"}
             onClick={() => {
-              const confirmed = bettingGrid.confirmSelection(true); // 確定して選択をクリアする
-              console.log("確定された番号:", confirmed);
-              // TODO: サーバ送信や次の画面遷移などをここで行う
+              if (!hasSelection) return;
+              // 選択番号を取得（まだ選択を消さない）
+              const confirmed = bettingGrid.confirmSelection(false);
+              // BottomSheet を閉じて Payment ページへ遷移（選択番号をクエリで渡す）
               bottomSheet.close();
+              const q = encodeURIComponent(confirmed.join(","));
+              router.push(`/Payment?numbers=${q}`);
             }}
+            disabled={!hasSelection}
           >
             <p className="font-bold text-lg">確定</p>
           </CommonButton>

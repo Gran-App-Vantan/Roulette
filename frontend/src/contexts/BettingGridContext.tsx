@@ -17,10 +17,11 @@ type BettingGridContextType = {
 const BettingGridContext = createContext<BettingGridContextType | null>(null);
 
 export const BettingGridProvider = ({ children }: { children: ReactNode }) => {
-  const { grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, confirmSelection, getSelectedNumbers, clearSelection } = useBettingGrid();
+  // useBettingGrid は一度だけ呼ぶ（返り値に selectSingleNumber を含める）
+  const { grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, selectSingleNumber, confirmSelection, getSelectedNumbers, clearSelection } = useBettingGrid();
 
   return (
-    <BettingGridContext.Provider value={{ grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, confirmSelection, getSelectedNumbers, clearSelection }}>
+    <BettingGridContext.Provider value={{ grid, selectOutsideBet, getRandomOutsideBet, toggleNumber, selectSingleNumber, confirmSelection, getSelectedNumbers, clearSelection }}>
       {children}
     </BettingGridContext.Provider>
   );
