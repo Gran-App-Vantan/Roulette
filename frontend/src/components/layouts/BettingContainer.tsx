@@ -15,7 +15,7 @@ const BettingContainer = () => {
           seleted={item.selected}
           dim={item.dim}
           onClick={() => {
-            const sel = (bettingGrid as any).selectSingleNumber ?? (bettingGrid as any).toggleNumber;
+            const sel = bettingGrid.selectSingleNumber ?? bettingGrid.toggleNumber;
             if (typeof sel === "function") {
               sel(item.betNumber);
               return;

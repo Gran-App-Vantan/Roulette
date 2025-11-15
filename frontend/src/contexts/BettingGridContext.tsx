@@ -9,6 +9,7 @@ type BettingGridContextType = {
   selectOutsideBet: (type: OutsideBetType) => void;
   getRandomOutsideBet: () => OutsideBetType;
   toggleNumber: (betNumber: number) => void;
+  selectSingleNumber: (betNumber: number) => void;
   confirmSelection: (clearAfterConfirm?: boolean) => number[];
   getSelectedNumbers: () => number[];
   clearSelection: () => void;

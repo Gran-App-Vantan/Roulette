@@ -62,6 +62,7 @@ export default function TimedSwitch() {
 
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
   // Resultフェーズでランダム結果生成 & Standby に戻す

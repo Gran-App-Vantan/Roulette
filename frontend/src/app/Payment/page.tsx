@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
-export default function Payment() {
+function PaymentContent() {
   const [raw, setRaw] = useState<string>("");
   const amount = Number(raw || 0);
   const min = 1;
@@ -30,7 +30,7 @@ export default function Payment() {
   const handleConfirm = () => {
     if (!valid) return;
 
-    // ★ ここで次のページに送るだけ（掛金と選択番号だけ渡す）
+    // ★ ここで次のページに送るだけ(掛金と選択番号だけ渡す)
     router.push(`/next?amount=${amount}&numbers=${selectedNumbers.join(",")}`);
   };
 
@@ -54,7 +54,7 @@ export default function Payment() {
 
       {/* 入力 UI */}
       <div className="w-full max-w-md flex flex-col gap-4">
-        <label className="text-sm font-medium">掛金（P）</label>
+        <label className="text-sm font-medium">掛金(P)</label>
         <input
           inputMode="numeric"
           pattern="[0-9]*"
@@ -82,7 +82,7 @@ export default function Payment() {
             入力値: <span className="font-medium">{amount.toLocaleString()} P</span>
           </div>
           <div className={`${valid ? "text-green-600" : "text-red-600"}`}>
-            {valid ? "有効" : `無効（${min}〜${max} P、かつ賭ける場所が必要）`}
+            {valid ? "有効" : `無効(${min}〜${max} P、かつ賭ける場所が必要)`}
           </div>
         </div>
 
@@ -97,5 +97,13 @@ export default function Payment() {
         </button>
       </div>
     </main>
+  );
+}
+
+export default function Payment() {
+  return (
+    <Suspense fallback={<div>読み込み中...</div>}>
+      <PaymentContent />
+    </Suspense>
   );
 }

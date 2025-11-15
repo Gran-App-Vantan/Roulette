@@ -7,10 +7,6 @@ type ResultProps = {
     resultValue: number | null;
 };
 
-type ResultItemProps = {
-    resultValue: number | null;
-};
-
 export function Result({ resultValue }: ResultProps) {
     const ranking: UserRank[] = [
         { names: "UserA", points: 1000000 },

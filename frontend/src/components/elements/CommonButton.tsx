@@ -9,7 +9,7 @@ interface CommonButtonProps{
   disabled?: boolean;
 }
 
-const CommonButton = ({ children, color, invert = false, onClick, disabled = false }:CommonButtonProps) => {
+const CommonButton = ({ children, color, onClick, disabled = false }:CommonButtonProps) => {
   return (
     <button
       onClick={disabled ? undefined : onClick}

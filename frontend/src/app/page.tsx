@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Timedswitch from "@/components/layouts/TimedSwitch";
 
 export default function Home(){

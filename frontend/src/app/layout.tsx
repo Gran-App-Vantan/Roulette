@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 
-import Header from "@/components/layouts/Header";
-
 import { BottomSheetProvider } from "@/contexts/BottomSheetContext";
 import { BettingGridProvider } from "@/contexts/BettingGridContext";
 

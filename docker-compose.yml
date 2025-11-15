@@ -25,4 +25,4 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: dev
     ports:
-      - 3308:3306
+      - 3309:3306
